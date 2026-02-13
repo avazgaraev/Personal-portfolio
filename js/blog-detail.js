@@ -1,4 +1,4 @@
-const API_BASE = "https://avaz-portfolio-api.azurewebsites.net";
+const API_BASE = "https://avaz-portfolio-api-hygqdef8bzgrc8h9.westeurope-01.azurewebsites.net";
 
 document.addEventListener("DOMContentLoaded", initDetail)
 
