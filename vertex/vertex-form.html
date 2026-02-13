@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from www.ansonika.com/betler/review-7.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Feb 2026 08:58:42 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Betler Multipurpose Forms HTML Template">
+    <meta name="author" content="Ansonika">
+    <title>Betler | Multipurpose Forms HTML Template</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+
+    <!-- BASE CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/vendors.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+</head>
+
+<body>
+	
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div><!-- /Preload -->
+
+	<div class="background-image" data-background="url(img/main_bg_2.jpg)">
+	    <div class="min-vh-100 d-flex flex-column opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.6)">
+	        <div class="container my-auto">
+	            <div class="row">
+	                <div class="col-md-9 col-lg-7 col-xl-5 mx-auto my-4">
+	                    <div class="panel center">
+	                        <figure class="add_bottom_30">
+	                            <a href="#0"><img src="img/logo_black.svg" width="46" height="40" alt=""></a>
+	                        </figure>
+							<form class="input_style_1" id="vertexPostForm">
+								<!-- Publish to social toggle -->
+								<div class="form-group mb-3">
+									<label class="d-flex align-items-center gap-2">
+									<span>Publish to Instagram & Facebook</span>
+
+									<!-- info icon -->
+									<span
+										class="info-icon"
+										data-bs-toggle="tooltip"
+										data-bs-placement="right"
+										title="If unchecked, the post will only appear on your Portfolio 'My Blogs' page."
+										aria-label="Info"
+									>i</span>
+									</label>
+
+									<div class="d-flex align-items-center gap-2">
+									<input type="checkbox" id="publishToSocial" checked />
+									<small class="text-white-50">Enabled by default</small>
+									</div>
+								</div>
+
+								<!-- Title -->
+								<div class="form-group">
+									<label for="postTitle">Post Title (Website)</label>
+									<input type="text" id="postTitle" class="form-control" placeholder="E.g., New product update" required />
+								</div>
+
+								<!-- Description -->
+								<div class="form-group">
+									<label for="postDescription">Description</label>
+									<textarea
+									id="postDescription"
+									class="form-control"
+									style="height: 150px;"
+									placeholder="Write a short description..."
+									required
+									></textarea>
+								</div>
+
+								<!-- Media type -->
+								<div class="form-group">
+									<label for="mediaType">Media Type</label>
+									<select id="mediaType" class="form-control" required>
+									<option value="image" selected>Image</option>
+									<option value="video">Video</option>
+									<option value="carousel">Carousel (Images only)</option>
+									<option value="none">No Media (Website only)</option>
+									</select>
+
+									<small class="text-white-50 d-block mt-2">
+									Instagram carousel supports up to 10 images.
+									</small>
+								</div>
+
+								<!-- Media input mode -->
+								<div class="form-group">
+									<label for="mediaInputMode">Media Input</label>
+									<select id="mediaInputMode" class="form-control">
+									<option value="url" selected>Public URL(s)</option>
+									<option value="file">Upload File(s) (requires API upload endpoint)</option>
+									</select>
+									<small class="text-white-50 d-block mt-2">
+									For social publishing, media must be publicly accessible. If using Upload mode, your API should return public URLs.
+									</small>
+								</div>
+
+								<!-- URL inputs container -->
+								<div class="form-group" id="mediaUrlBlock">
+									<label id="mediaUrlLabel" for="mediaUrl">Media URL</label>
+									<input type="text" id="mediaUrl" class="form-control" placeholder="https://..." />
+									<div id="mediaUrlsExtra" class="mt-2"></div>
+									<button type="button" id="addMoreUrlsBtn" class="btn_1" style="padding:10px 14px; width:auto; margin-top:10px;">
+									+ Add another URL
+									</button>
+								</div>
+
+								<!-- File inputs container -->
+								<div class="form-group" id="mediaFileBlock" style="display:none;">
+									<label id="mediaFileLabel" for="mediaFiles">Upload</label>
+									<input type="file" id="mediaFiles" class="form-control" />
+									<small class="text-white-50 d-block mt-2" id="fileHint"></small>
+								</div>
+
+								<!-- Submit -->
+								<button type="submit" class="btn_1 full-width" id="submitBtn">Publish</button>
+
+								<!-- Result -->
+								<div class="mt-4" id="resultBox" style="display:none;">
+									<h6 class="text-white mb-3" id="resultTitle">Published Links</h6>
+
+									<div class="link-row">
+										<i class="fa fa-globe"></i>
+										<a id="portfolioLink" href="#" target="_blank" rel="noopener">Blog Link</a>
+									</div>
+
+									<div class="link-row">
+										<i class="fa fa-instagram"></i>
+										<a id="igLink" href="#" target="_blank" rel="noopener">Instagram Link</a>
+									</div>
+
+									<div class="link-row">
+										<i class="fa fa-facebook"></i>
+										<a id="fbLink" href="#" target="_blank" rel="noopener">Facebook Link</a>
+									</div>
+
+									<div class="mt-3 text-white-50" id="loadingArea" style="display:none;">
+										<span id="loadingText">Publishing</span><span class="dots"><span>.</span><span>.</span><span>.</span></span>
+										<div class="mt-2" id="progressText"></div>
+									</div>
+								</div>
+
+
+								<!-- Status -->
+								<div class="mt-3 text-white-50" id="statusText" style="min-height: 20px;"></div>
+							</form>
+
+
+	                    </div>
+	                </div>
+	                <!-- /col -->
+	            </div>
+	            <!-- /row -->
+	        </div>
+	        <!-- /container -->
+	        <div class="container py-2 copy white">© VERTEX - All Rights Reserved.</div>
+	    </div>
+	</div>
+	<!-- /background-image -->
+
+	<!-- Modal terms -->
+	<div class="modal fade" id="terms-txt" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="termsLabel">Terms and conditions</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in <strong>nec quod novum accumsan</strong>, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
+					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus. Lorem ipsum dolor sit amet, <strong>in porro albucius qui</strong>, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
+					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn_1" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	<script src="js/vertex-publisher.js"></script>
+	<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+		tooltipTriggerList.map(el => new bootstrap.Tooltip(el));
+	});
+	</script>
+	<!-- COMMON SCRIPTS -->
+    <script src="js/common_scripts.js"></script>
+	<script src="js/common_func.js"></script>
+
+</body>
+
+<!-- Mirrored from www.ansonika.com/betler/review-7.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Feb 2026 08:58:45 GMT -->
+</html>

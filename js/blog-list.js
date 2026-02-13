@@ -62,42 +62,28 @@ function renderMediaPreview(p, detailHref) {
   const type = (p.mediaType || "").toLowerCase();
   const mediaUrls = Array.isArray(p.mediaUrls) ? p.mediaUrls.filter(Boolean) : [];
 
-  // VIDEO -> placeholder image
+  // VIDEO -> placeholder cover
   if (type === "video") {
     return `
       <a href="${detailHref}" class="d-block position-relative overflow-hidden">
-        <video width="520" height="300" controls>
-          <source src="${p.mediaURL}" type="video/mp4">
-        </video>
+        <img src="${VIDEO_COVER}" class="img-fluid" alt="Video Post" />
+        <span class="media-badge"><i class="fa fa-play"></i> Video</span>
       </a>
     `;
   }
 
-  // CAROUSEL (2+ images) -> grid preview (2 columns)
+  // CAROUSEL -> show only first image + carousel badge
   if (mediaUrls.length >= 2) {
-    const preview = mediaUrls.slice(0, 4);
-
-    const gridItems = preview
-      .map(
-        (url) => `
-        <div class="col-6 p-1">
-          <img src="${url}" class="img-fluid" alt="Blog Post" style="width:100%; height:140px; object-fit:cover;" />
-        </div>`
-      )
-      .join("");
-
+    const cover = mediaUrls[0];
     return `
       <a href="${detailHref}" class="d-block position-relative overflow-hidden">
-        <div class="container-fluid p-0">
-          <div class="row g-0">
-            ${gridItems}
-          </div>
-        </div>
+        <img src="${cover}" class="img-fluid" alt="Carousel Post" />
+        <span class="media-badge"><i class="fa fa-clone"></i> Carousel</span>
       </a>
     `;
   }
 
-  // SINGLE IMAGE (fallback)
+  // SINGLE IMAGE
   if (p.mediaURL) {
     return `
       <a href="${detailHref}" class="d-block position-relative overflow-hidden">
