@@ -1,4 +1,4 @@
-const API_BASE = "https://localhost:7221"
+const API_BASE = "https://avaz-portfolio-api.azurewebsites.net";
 
 document.addEventListener("DOMContentLoaded", initDetail)
 
