@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Blog - Tunis Personal Portfolio</title>
+    <title>AG Portfolio - VERTEX post</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Template Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -24,8 +24,11 @@
     <link rel="alternate stylesheet" type="text/css" title="magenta" href="css/skins/magenta.css">
     <link rel="alternate stylesheet" type="text/css" title="orange" href="css/skins/orange.css">
     <link rel="alternate stylesheet" type="text/css" title="purple" href="css/skins/purple.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="alternate stylesheet" type="text/css" title="red" href="css/skins/red.css">
     <link rel="alternate stylesheet" type="text/css" title="yellowgreen" href="css/skins/yellowgreen.css">
+    <link rel="icon" href="https://slavicuniversityfiles.blob.core.windows.net/photos/images/Untitled%20design%20(4).png">
     <link rel="stylesheet" type="text/css" href="css/styleswitcher.css">
   </head>
   <body class="light blog-post">
@@ -93,9 +96,23 @@
         </div>
       </div>
     </div>
+    <!-- Lightbox Modal  -->
+    <div class="modal fade" id="imgLightbox" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-transparent border-0">
+          <button type="button" class="btn-close btn-close-white ms-auto me-2 mt-2" data-bs-dismiss="modal"></button>
+          <div class="modal-body p-0">
+            <img id="lightboxImg" src="" alt="Preview" style="width:100%; height:auto; border-radius:14px;" />
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Template JS Files -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/custom.js"></script>
+
+<!-- Bootstrap JS (bundle) MÜTLƏQ sənin scriptindən ƏVVƏL -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/blog-detail.js"></script>
   </body>
 </html>

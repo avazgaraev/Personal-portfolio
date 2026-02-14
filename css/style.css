@@ -1948,3 +1948,145 @@ body.blog-post article img {
 .media-badge i {
   font-size: 14px;
 }
+
+/* Post card image area - hamısı eyni ölçüdə görünsün */
+.post-container .post-thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;        /* istəsən sil */
+  background: #f1f1f1;
+}
+
+/* Variant 1: sabit hündürlük (ən stabil yanaşma) */
+.post-container .post-thumb a {
+  display: block;
+  height: 220px;              /* istədiyin ölçü: 180/200/240 */
+  overflow: hidden;
+}
+
+/* Şəkli container-ə tam oturt */
+.post-container .post-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* crop edib nizamlı göstərir */
+  object-position: center;
+  display: block;
+}
+
+/* "No Media" div-in də eyni ölçüdə qalması üçün */
+.post-container .post-thumb a > div {
+  height: 100% !important;
+  width: 100%;
+}
+
+/* Badge (Video / Carousel) */
+.post-container .post-thumb .media-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(4px);
+}
+
+/* Hover effekti istəsən */
+.post-container .post-thumb img {
+  transition: transform .25s ease;
+}
+.post-container:hover .post-thumb img {
+  transform: scale(1.03);
+}
+/* === Detail Carousel UX === */
+.detail-carousel {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+
+.detail-carousel .carousel-item img {
+  width: 100%;
+  height: min(520px, 62vh);
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform .35s ease;
+}
+
+.detail-carousel:hover .carousel-item.active img {
+  transform: scale(1.02);
+}
+
+.detail-carousel .carousel-control-prev,
+.detail-carousel .carousel-control-next {
+  width: 10%;
+}
+
+.detail-carousel .carousel-control-prev-icon,
+.detail-carousel .carousel-control-next-icon {
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.45));
+}
+
+.detail-carousel .media-counter {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  backdrop-filter: blur(6px);
+}
+
+/* thumbnails */
+.carousel-thumbs {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-thumbs::-webkit-scrollbar {
+  height: 6px;
+}
+.carousel-thumbs::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.15);
+  border-radius: 999px;
+}
+
+.carousel-thumb {
+  flex: 0 0 auto;
+  width: 88px;
+  height: 62px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: .7;
+  border: 2px solid transparent;
+  scroll-snap-align: start;
+  transition: opacity .2s ease, border-color .2s ease, transform .2s ease;
+  background: #eee;
+}
+
+.carousel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-thumb.active {
+  opacity: 1;
+  border-color: rgba(0,0,0,.35);
+  transform: translateY(-1px);
+}
