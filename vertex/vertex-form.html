@@ -87,31 +87,33 @@
                   <img src="../img/projects/vertex standard.png" width="46" height="40" alt="VERTEX">
                 </a>
               </figure>
-			  <h4 class="text-black" style="margin-bottom:14px;">VERTEX Publisher</h4>
-              <p class="text-blue" style="margin-bottom:18px;">
-                Create a post for your portfolio blog — optionally publish it to Instagram & Facebook.
+			  <h4 class="text-black" style="margin-bottom:14px;text-align: center;font-size: 45px;font-family:'Times New Roman', Times, serif">VERTEX </h4>
+              <p class="text-blue" style="margin-bottom:18px;text-align: center;">
+                One post. One click. Everywhere. 
+                <br>
+                <br>
+                <br>
               </p>
 							<form class="input_style_1" id="vertexPostForm">
 								<!-- Publish to social toggle -->
 								<div class="form-group mb-3">
 									<label class="d-flex align-items-center gap-2">
-										<span>Publish to Instagram & Facebook</span>
-
+										<span style="font-size: 15px;">Publish to Instagram & Facebook</span>
+                    <div class="d-flex align-items-center gap-2">
+                      <input type="checkbox" id="publishToSocial" checked />
+                    </div>
 										<!-- info icon (button) -->
 										<button
 										type="button"
 										class="info-icon"
 										data-bs-toggle="tooltip"
 										data-bs-placement="right"
-										title="If unchecked, the post will only appear on your Portfolio 'My Blogs' page."
+										title="If unchecked, the post will only appear on the Portfolio 'My Blogs' page."
 										aria-label="Info"
 										>i</button>
 									</label>
-
-									<div class="d-flex align-items-center gap-2">
-										<input type="checkbox" id="publishToSocial" checked />
-										<small class="text-white-50">Enabled by default</small>
-									</div>
+<br>
+									
 								</div>
 
 								<!-- Title -->
@@ -134,31 +136,28 @@
 
 								<!-- Media type -->
 								<div class="form-group">
-									<label for="mediaType">Media Type</label>
-									<select id="mediaType" class="form-control" required>
-									<option value="image" selected>Image</option>
-									<option value="video">Video</option>
-									<option value="carousel">Carousel (Images only)</option>
-									<option value="none">No Media (Website only)</option>
-									</select>
+                  <label for="mediaType">Media Type</label>
+                  <select id="mediaType" class="form-control" required>
+                    <option value="image" selected>Image</option>
+                    <option value="video">Video</option>
+                    <option value="carousel">Carousel (Images only)</option>
+                    <option value="none">No Media (Website only)</option>
+                  </select>
 
-									<small class="text-red-50 d-block mt-2">
-									Instagram carousel supports up to 10 images.
-									</small>
-									<br>
-								</div>
+                  <small id="mediaTypeHint" class="text-red-50 d-block mt-2"></small>
+                  <br>
+                </div>
 
-								<!-- Media input mode -->
-								<div class="form-group">
-									<label for="mediaInputMode">Media Input</label>
-									<select id="mediaInputMode" class="form-control">
-									<option value="url" selected>Public URL(s)</option>
-									<option value="file">Upload File(s) (requires API upload endpoint)</option>
-									</select>
-									<small class="text-red-50 d-block mt-2">
-									For social publishing, media must be publicly accessible. If using Upload mode, your API should return public URLs.
-									</small>
-								</div>
+                <div class="form-group">
+                  <label for="mediaInputMode">Media Input</label>
+                  <select id="mediaInputMode" class="form-control">
+                    <option value="file" selected>Upload File(s)</option>
+                    <option value="url">Public URL(s)</option>
+                  </select>
+
+                  <small id="mediaInputHint" class="text-red-50 d-block mt-2"></small>
+                  <br>
+                </div>
 
 								<!-- URL inputs container -->
 								<div class="form-group" id="mediaUrlBlock">
@@ -239,6 +238,7 @@
 
   <!-- Vertex script -->
   <script src="js/vertex-publisher.js"></script>
+  <script src="js/custom.js"></script>
 
   <!-- Tooltip init (✅ now bootstrap exists) -->
   <script>
