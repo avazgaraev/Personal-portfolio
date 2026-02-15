@@ -265,3 +265,32 @@ if (galleryEl) {
     if (e.stopImmediatePropagation) e.stopImmediatePropagation();
   }, true);
 })();
+
+(function () {
+  const preloader = document.getElementById("preloader");
+  if (!preloader) return;
+
+  // Animasiya bitən kimi söndürmək üçün:
+  // 1) DOM hazır olan kimi başlayırıq (load yox!)
+  document.addEventListener("DOMContentLoaded", () => {
+    // line anim: 1000ms
+    // panel finish: 500ms delay + 500ms anim = 1000ms
+    // yəni total təxminən 2000ms
+    setTimeout(() => {
+      preloader.classList.add("preloaded");
+    }, 1000); // line dolsun, sonra panellər bağlansın
+  });
+
+  // 2) panel bağlanması bitəndə preloader-i dərhal öldür
+  const rightPanel = preloader.querySelector(".panel-right");
+  if (rightPanel) {
+    rightPanel.addEventListener("animationend", (e) => {
+      if (e.animationName === "finishRight") {
+        preloader.classList.add("is-hidden");
+      }
+    });
+  } else {
+    // fallback
+    setTimeout(() => preloader.classList.add("is-hidden"), 2200);
+  }
+})();
