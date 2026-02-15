@@ -172,3 +172,50 @@ if (galleryEl) {
 
 
 })(jQuery);
+(function () {
+  function showPage(id) {
+    // 1) bütün page-lərdən current-u sil
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("page--current"));
+
+    // 2) target page-i current et
+    const page = document.getElementById(id);
+    if (page) page.classList.add("page--current");
+
+    // 3) desktop nav active class
+    document.querySelectorAll("#desktop-nav .desktop-nav-element").forEach(li => li.classList.remove("active"));
+    const desktopActive = document.querySelector(`#desktop-nav .desktop-nav-element[data-target="${id}"]`);
+    if (desktopActive) desktopActive.classList.add("active");
+
+    // 4) mobile nav active class
+    document.querySelectorAll("#mobile-nav .mobile-nav-element").forEach(li => li.classList.remove("active"));
+    const mobileActive = document.querySelector(`#mobile-nav .mobile-nav-element[data-target="${id}"]`);
+    if (mobileActive) mobileActive.classList.add("active");
+  }
+
+  // Menyu klikləri: hash set et + page göstər
+  document.addEventListener("click", function (e) {
+    const item = e.target.closest("[data-target]");
+    if (!item) return;
+
+    const id = item.getAttribute("data-target");
+    if (!id) return;
+
+    // URL-ə yaz: refresh olanda saxlanacaq
+    location.hash = id;
+
+    // dərhal göstər
+    showPage(id);
+  });
+
+  // Səhifə açılan kimi: hash varsa ora get
+  window.addEventListener("load", function () {
+    const id = (location.hash || "#home").replace("#", "");
+    showPage(id);
+  });
+
+  // Back/forward düymələri üçün də işləsin
+  window.addEventListener("hashchange", function () {
+    const id = (location.hash || "#home").replace("#", "");
+    showPage(id);
+  });
+})();
