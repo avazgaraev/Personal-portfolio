@@ -219,3 +219,49 @@ if (galleryEl) {
     showPage(id);
   });
 })();
+
+//preloade rand navigated page queue 
+(function () {
+  const preloader = document.getElementById("preloader");
+  if (!preloader) return;
+
+  // 1) İlk giriş: gözəl finish animasiya ilə bağlansın
+  window.addEventListener("load", () => {
+    preloader.classList.add("preloaded");     // köhnə finish anim
+    setTimeout(() => {
+      preloader.classList.add("is-hidden");   // tam gizlətsin
+    }, 1100); // finishanimation (500+500) + az buffer
+  });
+
+  // 2) Daxili naviqasiya zamanı: tez açılıb bağlanan loader (fade)
+  //    Burda sənin data-target click-lərini tuturuq.
+  document.addEventListener("click", function (e) {
+    const item = e.target.closest("[data-target]");
+    if (!item) return;
+
+    const id = item.getAttribute("data-target");
+    if (!id) return;
+
+    // Loader-ı dərhal göstər
+    preloader.classList.remove("is-hidden");
+    preloader.classList.remove("preloaded"); // finish anim olmasın daxili keçiddə
+
+    // Loader görünsün deyə 1 frame gözləyib sonra naviqasiya et
+    requestAnimationFrame(() => {
+      // Burda sənin showPage(id) funksiyan varsa işləyəcək
+      // Əgər showPage başqa fayldadırsa, yenə də globaldırsa problem yoxdur.
+      location.hash = id;
+      if (typeof showPage === "function") showPage(id);
+
+      // Kiçik delay -> UX
+      setTimeout(() => {
+        preloader.classList.add("is-hidden");
+      }, 220);
+    });
+
+    // Digər template click handler-lər gecikib preloader çıxarmasın deyə:
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+  }, true);
+})();

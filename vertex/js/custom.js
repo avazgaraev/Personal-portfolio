@@ -64,3 +64,5 @@ document.addEventListener("DOMContentLoaded", () => {
   mediaType.addEventListener("change", updateMediaTypeHint);
   mediaInputMode.addEventListener("change", updateMediaInputHint);
 });
+
+
