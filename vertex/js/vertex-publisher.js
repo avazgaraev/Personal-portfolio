@@ -1,4 +1,4 @@
-const API_BASE = "https://avaz-portfolio-api-hygqdef8bzgrc8h9.westeurope-01.azurewebsites.net";
+const API_BASE = "https://localhost:7221";
 const PORTFOLIO_DETAIL_BASE =
   "https://avazgaraev.github.io/Personal-portfolio/blog-detail.html?id=";
 
