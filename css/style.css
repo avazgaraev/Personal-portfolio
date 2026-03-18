@@ -46,6 +46,7 @@ Version: 1.0
 html {
   overflow-x: hidden;
   height: 100%;
+  background-color: #D5DBEB;
 }
 
 body {
@@ -59,7 +60,7 @@ body {
   background-position: center;
   height: 100%;
   width: 100%;
-  background-color: #111;
+  background-color: #D5DBEB;
 }
 
 .poppins-font {
@@ -97,7 +98,7 @@ hr.separator {
 
 body.light {
   color: #666;
-  background-color: #fff;
+  background-color: #EAEDF5;
 }
 
 body.home-page.light .home-details h1 span,
